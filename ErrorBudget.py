@@ -8,6 +8,8 @@ Author: Michelle Burroughs
 Date 12/13/20
 
 '''
+
+#imports
 import math
 
 
