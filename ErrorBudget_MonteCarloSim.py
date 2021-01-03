@@ -18,7 +18,7 @@ avg = [0]*len(varrayc)
 for i in range(len(varrayc)):
     sigma[i] = varrayc[i]/2
 
-numreps = 5
+numreps = 100
 
 # creates 2d array with rows as individual sigmas
 varray = [[0]*numreps]*len(sigma)
@@ -39,3 +39,12 @@ sig = [0]*numreps
 for i in range(len(sig2)):
     sig[i] = math.sqrt(sig2[i])
 
+
+print('Max sigma is ')
+print(max(sig))
+
+print('Min sigma is ')
+print(min(sig))
+
+print('Avg sigma is ')
+print(sum(sig)/len(sig))
