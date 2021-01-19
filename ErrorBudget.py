@@ -48,3 +48,6 @@ def fitting_error(d, r_0, u):
     return sigma_fitting
 
 
+
+
+
