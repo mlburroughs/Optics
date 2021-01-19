@@ -8,7 +8,7 @@ numrep (int): Number of times variable is computed for guassian distribution
 
 And outputs:
 varray (array): a simulation array [i] of guassian distributions for each confidence [i]
-sigma (array): RSS for each [i] simulation
+sigma (array): RSS error for each [i] simulation
 
 Author: Michelle Burroughs
 Date 1/2/21
@@ -28,7 +28,7 @@ avg = [0]*len(varrayc)
 for i in range(len(varrayc)):
     sigma[i] = varrayc[i]/2
 
-numreps = 10
+numreps = 100000
 
 # creates 2d array with rows as individual sigmas
 varray = [[0]*numreps]*len(sigma)
@@ -50,15 +50,22 @@ sig = [0]*numreps
 for i in range(len(sig2)):
     sig[i] = math.sqrt(sig2[i])
 
+sig.sort()
+
+counter = 0
+for i in range(len(sig)):
+    if sig[i] <= 2:
+        counter += 1
+
+percentage = (counter/len(sig))*100
+print(percentage)
 
 # Total Error Budget evaluations
-print('Max sigma is ')
+print('Max sigma is: ')
 print(max(sig))
 
-print('Min sigma is ')
+print('Min sigma is: ')
 print(min(sig))
 
-print('Avg sigma is ')
+print('Avg sigma is: ')
 print(sum(sig)/len(sig))
-
-print(sig)
